@@ -1,0 +1,5 @@
+function logstat(){
+git log --numstat --pretty="%H" --author="$1" $2^..$3 | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'
+}
+
+alias mylogstat="logstat 'Andrew Decker'"
